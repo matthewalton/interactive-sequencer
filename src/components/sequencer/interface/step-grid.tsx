@@ -15,7 +15,9 @@ export default function StepGrid({ stepLength }: { stepLength: number }) {
             ))}
         </div>
         <div className="flex w-[100px] justify-center">
-          <TempoSliderControl />
+          <div className="h-1/2">
+            <TempoSliderControl />
+          </div>
         </div>
       </div>
     </div>

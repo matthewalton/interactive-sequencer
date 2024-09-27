@@ -16,7 +16,7 @@ const VerticalSlider = React.forwardRef<
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-full w-3 overflow-hidden rounded-full bg-primary/20">
+    <SliderPrimitive.Track className="relative h-full w-3 overflow-hidden rounded-sm bg-primary/20">
       <SliderPrimitive.Range className="absolute left-0 w-full bg-primary" />
     </SliderPrimitive.Track>
     <SliderPrimitive.Thumb className="block h-5 w-10 rounded-sm border border-primary/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" />
