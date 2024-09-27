@@ -16,7 +16,7 @@ export default function StepGrid({ stepLength }: { stepLength: number }) {
 
 function StepGridRow({ stepLength }: { stepLength: number }) {
   return (
-    <div className="flex flex-nowrap items-center justify-between gap-1">
+    <div className="flex flex-nowrap items-center justify-center gap-3">
       {Array(stepLength)
         .fill(null)
         .map((_, i) => (

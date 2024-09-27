@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 export default function StepIndicator({ stepLength }: { stepLength: number }) {
   return (
     <div className="w-full rounded-sm bg-zinc-800 px-4 py-2">
-      <div className="flex flex-nowrap items-center justify-between gap-1">
+      <div className="flex flex-nowrap items-center justify-center gap-3">
         {Array(stepLength)
           .fill(null)
           .map((_, i) => (
