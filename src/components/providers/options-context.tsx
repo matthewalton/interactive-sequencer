@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useState,
-  useContext,
-  ReactNode,
-  useEffect,
-} from "react"
+import { createContext, useState, useContext, ReactNode } from "react"
 
 interface OptionsContextProps {
   tempo: number
@@ -15,10 +9,6 @@ const OptionsContext = createContext<OptionsContextProps | undefined>(undefined)
 
 export function OptionsProvider({ children }: { children: ReactNode }) {
   const [tempo, setTempo] = useState(75.0)
-
-  useEffect(() => {
-    console.log("tempo changed", tempo)
-  }, [tempo])
 
   return (
     <OptionsContext.Provider value={{ tempo, setTempo }}>
