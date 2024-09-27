@@ -1,5 +1,16 @@
+import { useTempo } from "@/components/providers/options-context"
 import { VerticalSlider } from "@/components/ui/vertical-slider"
 
 export default function TempoSliderControl() {
-  return <VerticalSlider defaultValue={[50]} max={100} step={5} />
+  const { tempo, setTempo } = useTempo()
+
+  return (
+    <VerticalSlider
+      defaultValue={[tempo]}
+      max={280}
+      min={30}
+      step={5}
+      onValueChange={(value) => setTempo(value[0])}
+    />
+  )
 }
