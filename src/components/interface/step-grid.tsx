@@ -1,8 +1,4 @@
-export default function StepGridInterface({
-  stepLength,
-}: {
-  stepLength: number
-}) {
+export default function StepGrid({ stepLength }: { stepLength: number }) {
   const gridRows = 8
 
   return (

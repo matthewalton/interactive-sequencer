@@ -1,7 +1,7 @@
-import StepGridInterface from "./sequencer/step-grid-interface"
-import StepIndicator from "./sequencer/step-indicator"
+import StepGridInterface from "./interface/step-grid"
+import StepIndicator from "./interface/step-indicator"
 
-export default function Sequencer() {
+export default function SequencerInterface() {
   const stepLength = 16
 
   return (
