@@ -7,7 +7,7 @@ export default function SequencerInterface() {
   return (
     <div className="flex h-full flex-col gap-3">
       <StepIndicator stepLength={stepLength} />
-      <StepGridInterface stepLength={stepLength} />
+      <StepGridInterface />
     </div>
   )
 }

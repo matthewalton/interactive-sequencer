@@ -13,22 +13,31 @@ interface OptionsContextProps {
   isPlaying: boolean
   stepLength: number
   currentStep: number
+  gridMap: number[][]
+
   setTempo: (value: number) => void
   setIsPaused: (value: boolean) => void
   setIsPlaying: (value: boolean) => void
-  setStepLength: (value: number) => void
-  setCurrentStep: (value: number) => void
+
+  toggleGridCell: (rowIndex: number, columnIndex: number) => void
+  gridCellIsActive: (rowIndex: number, columnIndex: number) => boolean
 }
 
 const OptionsContext = createContext<OptionsContextProps | undefined>(undefined)
 
 export function OptionsProvider({ children }: { children: ReactNode }) {
   const [tempo, setTempo] = useState(75.0)
-  const [stepLength, setStepLength] = useState(16)
 
   const [isPaused, setIsPaused] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+
   const [currentStep, setCurrentStep] = useState(0)
+  const [stepLength, setStepLength] = useState(16)
+  const [gridRows, setGridRows] = useState(8)
+
+  const [gridMap, setGridMap] = useState(() =>
+    Array.from({ length: gridRows }, () => Array(stepLength).fill(0)),
+  )
 
   const intervalRef = useRef<number | null>(null)
 
@@ -54,8 +63,34 @@ export function OptionsProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isPlaying && !isPaused) {
       setCurrentStep(0)
+
+      setGridMap(
+        Array.from({ length: gridRows }, () => Array(stepLength).fill(0)),
+      )
     }
   }, [isPlaying, isPaused])
+
+  useEffect(() => {
+    setGridMap(
+      Array.from({ length: gridRows }, () => Array(stepLength).fill(0)),
+    )
+  }, [gridRows, stepLength])
+
+  function toggleGridCell(rowIndex: number, columnIndex: number) {
+    if (!isPlaying && !isPaused) return
+
+    const newGridMap = gridMap
+
+    newGridMap[rowIndex][columnIndex] = newGridMap[rowIndex][columnIndex]
+      ? 0
+      : 1
+
+    setGridMap(newGridMap)
+  }
+
+  function gridCellIsActive(rowIndex: number, columnIndex: number) {
+    return gridMap[rowIndex][columnIndex] === 1
+  }
 
   return (
     <OptionsContext.Provider
@@ -63,13 +98,14 @@ export function OptionsProvider({ children }: { children: ReactNode }) {
         tempo,
         setTempo,
         stepLength,
-        setStepLength,
         isPaused,
         setIsPaused,
         isPlaying,
         setIsPlaying,
         currentStep,
-        setCurrentStep,
+        gridMap,
+        toggleGridCell,
+        gridCellIsActive,
       }}
     >
       {children}
