@@ -3,7 +3,7 @@ import Sequencer from "./components/sequencer/sequencer"
 
 export default function App() {
   return (
-    <div className="flex h-screen flex-col items-center justify-center gap-5">
+    <div className="mx-auto flex h-screen w-[1100px] flex-col items-center justify-center gap-5">
       <Sequencer />
     </div>
   )
