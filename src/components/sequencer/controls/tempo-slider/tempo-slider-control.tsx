@@ -1,8 +1,8 @@
-import { useTempo } from "@/components/providers/options-context"
+import { useOptions } from "@/components/providers/options-context"
 import { VerticalSlider } from "@/components/ui/vertical-slider"
 
 export default function TempoSliderControl() {
-  const { tempo, setTempo } = useTempo()
+  const { tempo, setTempo } = useOptions()
 
   return (
     <VerticalSlider

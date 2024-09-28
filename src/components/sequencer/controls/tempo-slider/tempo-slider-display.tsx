@@ -1,7 +1,7 @@
-import { useTempo } from "@/components/providers/options-context"
+import { useOptions } from "@/components/providers/options-context"
 
 export default function TempoSliderDisplay() {
-  const { tempo } = useTempo()
+  const { tempo } = useOptions()
 
   return (
     <div className="flex items-center gap-2">

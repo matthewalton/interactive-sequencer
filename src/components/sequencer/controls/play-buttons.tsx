@@ -1,11 +1,10 @@
+import { useOptions } from "@/components/providers/options-context"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { CircleIcon, PauseIcon, PlayIcon, SquareIcon } from "lucide-react"
-import { useState } from "react"
 
 export default function PlayButtons() {
-  const [isPaused, setIsPaused] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const { isPlaying, isPaused, setIsPlaying, setIsPaused } = useOptions()
 
   return (
     <div className="flex h-full gap-4">
