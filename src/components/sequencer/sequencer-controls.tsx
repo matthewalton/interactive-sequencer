@@ -1,4 +1,4 @@
-import TempoSliderDisplay from "./options/tempo-slider-display"
+import TempoSliderDisplay from "./controls/tempo-slider/tempo-slider-display"
 
 export default function SequencerControls() {
   return (
