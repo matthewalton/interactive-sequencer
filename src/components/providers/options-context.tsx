@@ -32,8 +32,9 @@ export function OptionsProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false)
 
   const [currentStep, setCurrentStep] = useState(0)
-  const [stepLength, setStepLength] = useState(16)
-  const [gridRows, setGridRows] = useState(8)
+
+  const stepLength = 16
+  const gridRows = 8
 
   const [gridMap, setGridMap] = useState(() =>
     Array.from({ length: gridRows }, () => Array(stepLength).fill(0)),
